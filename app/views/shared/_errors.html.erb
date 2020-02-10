@@ -1,0 +1,12 @@
+<% if obj.errors.any? %>
+    <ul class="alert alert-danger" role="alert">
+      <% obj.errors.full_messages.each do |msg| %>
+      
+        <li class="u-mb5">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span><%= msg %></span>
+        </li>
+      
+      <% end %>
+    </ul>
+<% end %>
