@@ -1,2 +1,38 @@
+//色
+$navbar-default-bg: #65BFA6;
+$fontColorMain:#38897A;
+$color-primary:#65BFA6;
+$white:#fff;
+$green2:#3BBF8F;
+$gray-10: #2e2e31; 
+$gray-6: #7b7a7d;
+$gray-4: #a5a5a6;
+$gray-3: #bbbbbc;
+$gray-2: #d1d0d2;
+$gray-1: #e8e7e8;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+//component
+.text-white{
+  color:$white !important;
+}
+.text-primary{
+  color:$fontColorMain !important;
+}
+
+.bg-primary{
+  background:$color-primary !important;
+}
+
+//logo
+.c-logo{
+  font-weight:700;
+}
+
+.jumbotron{
+  background-image:url(https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80);
+  background-size:cover;
+  background-position:center;
+}

@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+// * hack IE
+$hack-ie11: "*::-ms-backdrop";
+@mixin hack-ie($hack-ver:'') {
+    // * IE8 hack
+    @if $hack-ver == "ie8" {
+        @media \0screen {
+            @content;
+        }
+    }
+    // * IE9-10 hack(add propary \9)
+    @else if $hack-ver == "ie9-10" {
+        @media all and (min-width:0\0) {
+            @content;
+        }
+    }
+    // * IE10 hack(add propary \9)
+    @else if $hack-ver == "ie10" {
+        @media all and (-ms-high-contrast:none\0) {
+            @content;
+        }
+    }
+    // * IE11 hack(add selector *::-ms-backdrop)
+    @else if $hack-ver == "ie11" {
+        @media all and (-ms-high-contrast:none\0) {
+            @content;
+        }
+    }
+}
+/* hack IEの使い方
+    @include hack-ie(ie11) {
+        #{$hack-ie11}, .foo{
+            処理
+        }
+    }
+*/
+
+//メディアクエリ ブレイクポイント 変数
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+@mixin max-screen($break-point) {
+    @media screen and (max-width: $break-point) {
+        @content;
+    }
+}
+/*メディアクエリ 使い方
+.foo {
+    @include max-screen($breakpoint-tablet) {
+        background: red;
+    }
+    @include max-screen($breakpoint-mobile) {
+        background: pink;
+    }
+}
+*/
+
+
+//shadow
+@mixin box-shadow( $h: 0 , $v: 0 , $b: 24px , $s: 2px , $c: rgba(122,122,122,.2) ) {
+	box-shadow: $h $v $b $s $c;
+}
+
+
+//font-family
+@mixin gothic {
+	font-family: "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", "ＭＳ ゴシック", sans-serif;
+}
+
+@mixin mincho {
+	font-family: "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "游明朝", YuMincho, "メイリオ", Meiryo, "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+}
+
+//内包コンテンツを親要素いっぱいまで広げる
+.breaking-out {
+	margin-right: calc(50% - 50vw);
+	margin-left: calc(50% - 50vw);
+}
+
+//背景のみウィンドウ幅いっぱいまで広がるセクション
+.bg-full {
+	margin-right: calc(50% - 50vw);
+	margin-left: calc(50% - 50vw);
+	padding-right: calc(50vw - 50%);
+	padding-left: calc(50vw - 50%);
+}
