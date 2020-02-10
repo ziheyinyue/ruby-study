@@ -12,6 +12,9 @@
     <p>
       <%= link_to 'Edit', edit_article_path(article) %>
     </p>
+    <p>
+      <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %>
+    </p>
   </li>
   <% end %>
   
