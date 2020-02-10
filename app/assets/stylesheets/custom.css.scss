@@ -26,6 +26,14 @@ $gray-1: #e8e7e8;
   background:$color-primary !important;
 }
 
+.c-title__large{
+  color:$fontColorMain;
+  font-size:2rem;
+  font-weight:700;
+  padding:8px 0;
+  border-bottom:2px solid $fontColorMain;
+}
+
 //logo
 .c-logo{
   font-weight:700;
