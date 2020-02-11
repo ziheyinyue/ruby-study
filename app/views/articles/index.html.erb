@@ -1,20 +1,19 @@
-<h1>Listing all articles</h1>
-<%= link_to "Create new article", new_article_path %>
-<ul>
+<h1 class="c-title__large u-mb5">Listing all articles</h1>
+<%= link_to "Create new article >>", new_article_path %>
+<ul class="u-mt20">
   <% @articles.each do |article| %>
-  <li>
+  <li class="row">
+    <div class="col-xs-8 u-mb10">
     <%= link_to(article_path(article)) do %>
       <%= article.title %>
     <% end %>
-    <p>
-      <%= article.description %>
-    </p>
-    <p>
-      <%= link_to 'Edit', edit_article_path(article) %>
-    </p>
-    <p>
-      <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %>
-    </p>
+    </div>
+    <div class="col-xs-2 u-mb10">
+      <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary" %>
+    </div>
+    <div class="col-xs-2 u-mb10">
+      <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    </div>
   </li>
   <% end %>
   
