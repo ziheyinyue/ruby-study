@@ -15,6 +15,18 @@ $gray-1: #e8e7e8;
 @import "bootstrap";
 
 //component
+.d-flex{
+  display:flex !important;
+}
+
+.justify-content-center{
+  justify-content:center !important;
+}
+
+.align-items-center{
+  align-items:center !important;
+}
+
 .text-white{
   color:$white !important;
 }

@@ -1,0 +1,19 @@
+<h1 class="c-title__large u-mb15">All Users</h1>
+
+<% @users.each do |user| %>
+<ul>
+  <div class="row">
+    <div class="col-md-12">
+      <li class="well d-flex align-items-center">
+        <%= link_to gravatar_for(user), user_path(user), class: "u-mr20" %>
+        <%= link_to user.username, user_path(user) %>
+      </li>
+    </div>
+  </div>
+</ul>
+
+<% end %>
+
+<div>
+  <%= will_paginate %>
+</div>

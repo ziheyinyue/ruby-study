@@ -3,18 +3,25 @@
   <%= @article.title %>
 </h3>
 <div class="well">
+  
+    <p class="u-mb10">created by
+    <%= link_to(@article.user.username, user_path(@article.user)) if @article.user %></p>
+
   <p class="u-mb15">
     <%= @article.description %>
   </p>
   
   <div class="row">
-    <div class="col-sm-4">
-      <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
-    </div>
-    <div class="col-sm-4">
-      <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm:"Are you sure you want to delete the article?"}, class: "btn btn-danger btn-sm" %>
-     </div>
-    <div class="col-sm-4">
+    <% if logged_in? && current_user==@article.user %>
+      <div class="col-xs-4 u-mb10">
+        <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
+      </div>
+      <div class="col-xs-4 u-mb10">
+        
+        <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm:"Are you sure you want to delete the article?"}, class: "btn btn-danger btn-sm" %>
+       </div>
+     <% end %>
+    <div class="col-xs-4 u-mb10">
       <%= link_to "View all articles", articles_path, class: "btn btn-success btn-sm" %>
     </div>
   </div>

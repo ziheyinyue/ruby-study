@@ -1,0 +1,27 @@
+
+<ul class="u-mt20">
+  <% obj.each do |article| %>
+  <li class="well">
+    <div class="row">
+    <div class="col-xs-8 u-mb10">
+    <%= link_to(article_path(article)) do %>
+      <%= article.title %>
+    <% end %>
+    <br>
+    <small class="u-mt5 small">Created by:<%= article.user.username if article.user %>,
+<%= time_ago_in_words(article.created_at) %> ago</small>
+    </div>
+    
+    <% if logged_in? && current_user==article.user %>
+      <div class="col-xs-2 u-mb10">
+        <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary" %>
+      </div>
+      <div class="col-xs-2 u-mb10">
+        <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+</div>
+  </li>
+  <% end %>
+  
+</ul>

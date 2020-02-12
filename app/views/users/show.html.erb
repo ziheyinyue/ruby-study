@@ -1,0 +1,12 @@
+<h1 class="c-title__large u-mb15">Welecome to <%= @user.username %>'s page</h1>
+<div class="d-flex text-center justify-content-center">
+  
+    <%= gravatar_for @user,size:150 %>
+  
+</div>
+
+<h4 class="u-mt20 u-mb10 text-center"><%= @user.username %>'s articles</h4>
+<%= render 'articles/article', obj: @user.articles %>
+<div>
+  <%= will_paginate @user_articles %>
+</div>
