@@ -47,6 +47,15 @@ $gray-1: #e8e7e8;
   border-bottom:2px solid $fontColorMain;
 }
 
+.badge-primary{
+  background:$color-primary;
+  color:$white;
+  text-decoration:none;
+}
+
+.input_checkbox input{
+  width:auto !important;
+}
 //logo
 .c-logo{
   font-weight:700;

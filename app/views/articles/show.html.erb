@@ -10,6 +10,9 @@
   <p class="u-mb15">
     <%= @article.description %>
   </p>
+  <% if @article.categories.any? %>
+    <p class="u-mb20">Categories: <%= render @article.categories %></p>
+  <% end %>
   
   <div class="row">
     <% if logged_in? && (current_user==@article.user || current_user.admin?) %>
